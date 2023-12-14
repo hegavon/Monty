@@ -80,7 +80,7 @@ void rotl(stack_t **stack, unsigned int opcode_line)
 {
 	(void)opcode_line; /* Unused parameter */
 
-	if (*stack != NULL || (*stack)->next != NULL)
+	if (*stack != NULL && (*stack)->next != NULL)
 	{
 		stack_t *last = *stack;
 		stack_t *second_last = NULL;

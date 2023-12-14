@@ -80,5 +80,6 @@ void process_file(char *filename, stack_t **stack);
 void execute_opcode(char *line, unsigned int line_number, stack_t **stack);
 instruction_t *get_instruction(char *opcode);
 int is_number(char *str);
+void free_stack(stack_t *stack);
 
 #endif /* MONTY_H */

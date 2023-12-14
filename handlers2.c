@@ -130,4 +130,3 @@ void rotr(stack_t **stack, unsigned int opcode_line)
 		*stack = last;
 	}
 }
-

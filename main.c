@@ -132,4 +132,3 @@ instruction_t *get_instruction(char *opcode)
 	}
 	return (NULL);
 }
-

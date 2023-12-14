@@ -53,5 +53,7 @@ void pchar(stack_t **stack, unsigned int opcode_line);
 void pstr(stack_t **stack, unsigned int opcode_line);
 void rotl(stack_t **stack, unsigned int opcode_line);
 void rotr(stack_t **stack, unsigned int opcode_line);
-
+void f_stack(stack_t **stack, unsigned int opcode_line);
+void f_queue(stack_t **stack, unsigned int opcode_line);
+void addqueue(stack_t **stack, int n);
 #endif /* MONTY_H */

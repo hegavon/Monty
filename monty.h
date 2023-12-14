@@ -48,5 +48,10 @@ void nop(stack_t **stack, unsigned int opcode_line);
 void sub(stack_t **stack, unsigned int opcode_line);
 void div_op(stack_t **stack, unsigned int opcode_line);
 void mul(stack_t **stack, unsigned int opcode_line);
+void mod(stack_t **stack, unsigned int opcode_line);
+void pchar(stack_t **stack, unsigned int opcode_line);
+void pstr(stack_t **stack, unsigned int opcode_line);
+void rotl(stack_t **stack, unsigned int opcode_line);
+void rotr(stack_t **stack, unsigned int opcode_line);
 
 #endif /* MONTY_H */

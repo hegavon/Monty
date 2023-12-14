@@ -76,4 +76,9 @@ void rotr(stack_t **stack, unsigned int opcode_line);
 void f_stack(stack_t **stack, unsigned int opcode_line);
 void f_queue(stack_t **stack, unsigned int opcode_line);
 void addqueue(stack_t **stack, int n);
+void process_file(char *filename, stack_t **stack);
+void execute_opcode(char *line, unsigned int line_number, stack_t **stack);
+instruction_t *get_instruction(char *opcode);
+int is_number(char *str);
+
 #endif /* MONTY_H */

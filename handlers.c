@@ -4,6 +4,8 @@
  * push - push an element to the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
+ *
+ * Return: void
  */
 void push(stack_t **stack, unsigned int opcode_line)
 {
@@ -11,7 +13,13 @@ void push(stack_t **stack, unsigned int opcode_line)
 	stack_t *new_node;
 
 	arg = strtok(NULL, " \n");
-	if (arg == NULL || !is_number(arg))
+	if (arg == NULL)
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", opcode_line);
+		exit(EXIT_FAILURE);
+	}
+
+	if (!is_number(arg))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", opcode_line);
 		exit(EXIT_FAILURE);

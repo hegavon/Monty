@@ -82,24 +82,23 @@ void rotl(stack_t **stack, unsigned int opcode_line)
 
 	if (*stack != NULL && (*stack)->next != NULL)
 	{
-		stack_t *last = *stack;
-		stack_t *second_last = NULL;
+		stack_t *tmp = *stack;
+		stack_t *aux = (*stack)->next;
 
-		while (last->next != NULL)
+		while (tmp->next != NULL)
 		{
-			second_last = last;
-			last = last->next;
+			tmp = tmp->next;
 		}
 
-		second_last->next = NULL;
-		last->prev = NULL;
+		tmp->next = *stack;
+		(*stack)->next = NULL;
+		(*stack)->prev = tmp;
 
-		last->next = *stack;
-		(*stack)->prev = last;
-
-		*stack = last;
+		*stack = aux;
+		aux->prev = NULL;
 	}
 }
+
 
 /**
  * rotr - rotates the stack to the bottom

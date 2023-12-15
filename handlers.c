@@ -4,7 +4,6 @@
  * push - push an element to the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
- * Return: no return
  */
 void push(stack_t **stack, unsigned int opcode_line)
 {
@@ -21,7 +20,7 @@ void push(stack_t **stack, unsigned int opcode_line)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		fprintf(stderr, "L%d: Error: malloc failed\n", opcode_line);
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -39,7 +38,6 @@ void push(stack_t **stack, unsigned int opcode_line)
  * pall - print all the values on the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
- * Return: no return
  */
 void pall(stack_t **stack, unsigned int opcode_line)
 {
@@ -48,9 +46,6 @@ void pall(stack_t **stack, unsigned int opcode_line)
 	(void)opcode_line; /* Unused parameter */
 
 	current = *stack;
-
-	if (current == NULL)
-		return;
 
 	while (current != NULL)
 	{
@@ -63,7 +58,6 @@ void pall(stack_t **stack, unsigned int opcode_line)
  * pint - print the value at the top of the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
- * Return; no return
  */
 void pint(stack_t **stack, unsigned int opcode_line)
 {
@@ -82,7 +76,6 @@ void pint(stack_t **stack, unsigned int opcode_line)
  * pop - pop an element from the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
- * Return: no return
  */
 void pop(stack_t **stack, unsigned int opcode_line)
 {
@@ -92,12 +85,12 @@ void pop(stack_t **stack, unsigned int opcode_line)
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%d: Stack empty\n", opcode_line);
+		fprintf(stderr, "Stack empty\n");
 		exit(EXIT_FAILURE);
 	}
 
 	temp = *stack;
-	*stack = *temp->next;
+	*stack = (*stack)->next;
 
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
@@ -109,7 +102,6 @@ void pop(stack_t **stack, unsigned int opcode_line)
  * swap - swap the top two elements of the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
- * Return: return
  */
 void swap(stack_t **stack, unsigned int opcode_line)
 {
@@ -119,7 +111,7 @@ void swap(stack_t **stack, unsigned int opcode_line)
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: Stack too short to swap\n");
+		fprintf(stderr, "Stack too short to swap\n");
 		exit(EXIT_FAILURE);
 	}
 

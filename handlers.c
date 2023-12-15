@@ -61,6 +61,7 @@ void pall(stack_t **stack, unsigned int opcode_line)
  * pint - print the value at the top of the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
+ * Return: no return
  */
 void pint(stack_t **stack, unsigned int opcode_line)
 {
@@ -69,6 +70,9 @@ void pint(stack_t **stack, unsigned int opcode_line)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", opcode_line);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -79,6 +83,7 @@ void pint(stack_t **stack, unsigned int opcode_line)
  * pop - pop an element from the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
+ * Return: no return
  */
 void pop(stack_t **stack, unsigned int opcode_line)
 {
@@ -88,7 +93,10 @@ void pop(stack_t **stack, unsigned int opcode_line)
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "Stack empty\n");
+		fprintf(stderr, "L%d: stack empty\n", opcode_line);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 

@@ -82,5 +82,6 @@ instruction_t *get_instruction(char *opcode);
 int is_number(char *str);
 void free_stack(stack_t *stack);
 void free_instruction(instruction_t *instruction);
+void set_bus(bus_t new_bus);
 
 #endif /* MONTY_H */

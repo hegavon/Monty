@@ -47,6 +47,9 @@ void pall(stack_t **stack, unsigned int opcode_line)
 
 	current = *stack;
 
+	if (current == NULL)
+		return;
+
 	while (current != NULL)
 	{
 		printf("%d\n", current->n);

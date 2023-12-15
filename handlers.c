@@ -4,6 +4,7 @@
  * push - push an element to the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
+ * Return: no return
  */
 void push(stack_t **stack, unsigned int opcode_line)
 {
@@ -20,7 +21,7 @@ void push(stack_t **stack, unsigned int opcode_line)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		fprintf(stderr, "L%d: Error: malloc failed\n", opcode_line);
 		exit(EXIT_FAILURE);
 	}
 
@@ -38,6 +39,7 @@ void push(stack_t **stack, unsigned int opcode_line)
  * pall - print all the values on the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
+ * Return: no return
  */
 void pall(stack_t **stack, unsigned int opcode_line)
 {
@@ -61,6 +63,7 @@ void pall(stack_t **stack, unsigned int opcode_line)
  * pint - print the value at the top of the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
+ * Return; no return
  */
 void pint(stack_t **stack, unsigned int opcode_line)
 {
@@ -79,6 +82,7 @@ void pint(stack_t **stack, unsigned int opcode_line)
  * pop - pop an element from the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
+ * Return: no return
  */
 void pop(stack_t **stack, unsigned int opcode_line)
 {
@@ -93,7 +97,7 @@ void pop(stack_t **stack, unsigned int opcode_line)
 	}
 
 	temp = *stack;
-	*stack = (*stack)->next;
+	*stack = *temp->next;
 
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
@@ -105,6 +109,7 @@ void pop(stack_t **stack, unsigned int opcode_line)
  * swap - swap the top two elements of the stack
  * @stack: pointer to the stack
  * @opcode_line: line number in the file
+ * Return: return
  */
 void swap(stack_t **stack, unsigned int opcode_line)
 {
@@ -114,7 +119,7 @@ void swap(stack_t **stack, unsigned int opcode_line)
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "Stack too short to swap\n");
+		fprintf(stderr, "L%d: Stack too short to swap\n");
 		exit(EXIT_FAILURE);
 	}
 
